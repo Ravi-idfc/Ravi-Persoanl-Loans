@@ -346,8 +346,7 @@
                                 <h2 class="section-title">Apply for Personal Loan</h2>
                                 <p class="section-subtitle">Fill the form below and get instant callback</p>
                             </div>
-<!--                        <form id="loanForm" action="https://formsubmit.co/smithravi88@gmail.com" method="POST"> -->
-                            <form action="https://formsubmit.co/smithravi88@gmail.com" method="POST">
+                            <form id="myForm"  autocomplete="off">
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label for="name" class="form-label">Full Name *</label>
@@ -384,18 +383,39 @@
                                         <option value="500000+">₹5,00,000+</option>
                                     </select>
                                 </div>
+                               <div class="col-12 py-3">
+                                    <div class="form-group">
+                                        <div class="g-recaptcha"
+                                            data-sitekey="6Lfuh5ArAAAAAAEk7WJP2DIC4w3ETKVioS4QK8-Y"></div>
+                                    </div>
+                                </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-danger btn-lg">
                                         <i class="fas fa-paper-plane me-2"></i>Apply Now
                                     </button>
                                 </div>
 
-                                <!-- hidden config fields -->
-                                  <input type="hidden" name="_captcha" value="false">
-                                  <input type="hidden" name="_subject" value="New Personal Loan Application">
-                                  <input type="hidden" name="_template" value="table">
-                                  <input type="hidden" name="_next" value="https://ravi-idfc-personal-loans.netlify.app/thank-you.html">
+                                <input type="hidden" name="formDataNameOrder" value='["name","email","phone","location","project","message"]'>
                             </form> 
+
+                        <script>
+                                $("#myForm").submit((e) => {
+                                    e.preventDefault()
+                                    $.ajax({
+                                        url: "https://script.google.com/macros/s/AKfycbz9D2COEPLQp6IOEIqz6WTmdcQynzjWV6ZAwZItPVsF1uAhIaOWVJBTsry_cBrBk54p/exec",
+                                        data: $("#myForm").serialize(),
+                                        method: "post",
+                                        success: function(response) {
+                                            alert("Form submitted successfully");
+                                            // window.location.href = "thankyou.php"
+                                        },
+                                        error: function(err) {
+                                            alert("Something Error")
+                                        }
+                                    })
+                                })
+                        </script>
+                            
                         </div>
                     </div>
                 </div>
