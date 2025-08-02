@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ravi-idfc-personal-loans.netlify.app/sitemap.xml
